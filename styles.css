@@ -1,0 +1,9 @@
+body {
+    background-color: powderblue;
+}
+
+p {
+    font-family: verdana;
+    border: 10px solid palegreen;
+    color: tomato;
+}
