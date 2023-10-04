@@ -1,21 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<link rel="stylesheet" href="styles.css">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=JetBrains Mono' rel='stylesheet'>
+
+    <link rel="stylesheet" href="styles.css">
     <title>soup.</title>
 </head>
 
 <body>
-    <button id="displayButton">Display Message</button>
-    <p id="message"></p>
+    <header class="site-header">
+        <h1>soup.</h1>
+    </header>
 
-    <a href="https://www.google.com" target="_blank">Google</a> <!--Посилання-->
-    <img src="example.png" alt="example" width="200" height="100"></img>
-    <p id="p1" title="тултіп">Це параграф з <br> лайнбрейком, клікни і дивись тултіп</p>
-    <p>The <abbr title="United States">USA</abbr> was</p>
+    <div class="card">
+        <div class="card-header">
+            <input type="text" class="card-title" placeholder="Enter Title">
+        </div>
+        
+        <div class="card-body">
+            <textarea class="card-description" placeholder="Enter Description"></textarea>
+        </div>
+    </div>
+
+    <!-- <button class="button">Click Me</button> --->
 
     <script src="script.js"></script>
 </body>

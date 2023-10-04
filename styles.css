@@ -1,9 +1,81 @@
 body {
-    background-color: powderblue;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    align-items: center;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
 }
 
-p {
-    font-family: verdana;
-    border: 10px solid palegreen;
-    color: tomato;
+.site-header {
+    background-color: tomato;
+    color: #fff;
+    /* text-align: center; */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 0;
+    height: 3vh; 
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+.site-header h1 {
+    font-family: JetBrains Mono; 
+    font-size: 32px;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+.button {
+    background-color: tomato; 
+    color: #fff; 
+    border: none;
+    padding: 10px 20px; 
+    cursor: pointer; 
+    border-radius: 5px; 
+}
+
+.button:hover {
+    background-color: rgb(255, 135, 90); 
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 5px;
+    width: 20%; 
+    padding: 10px; 
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+} 
+
+.card-header {
+    margin-bottom: 10px;
+}
+
+.card-title {
+    border: none;
+    width: 90%;
+    padding: 5px;
+    font-size: 18px;
+    font-family: jetbrains mono;
+    font-weight: bold;
+    border-bottom: 1px solid #ddd;
+    outline: none;
+}
+
+.card-description {
+    border: none;
+    width: 80%;
+    padding: 10px;
+    font-size: 14px;
+    font-family: jetbrains mono;
+    resize: none;
+    height: 120px;
+    outline: none;
 }
