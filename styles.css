@@ -44,8 +44,8 @@ body {
 
 .card {
     position: relative;
-    top: 15vh; /* at top of the page */
-    left: 10vh; /* at left of the page */
+    /* top: 15vh; /* at top of the page 
+    left: 10vh; at left of the page */
     background-color: #fff;
     border-radius: 5px;
     width: 20%; 
