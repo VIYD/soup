@@ -1,21 +1,17 @@
 body {
-    background-color: white;
+    background-color: gray;
     margin: 0;
     padding: 0;
-    text-align: center;
-    align-items: center;
-    min-height: 100vh;
     display: flex;
-    justify-content: center;
 }
 
 .site-header {
     background-color: tomato;
     color: #fff;
-    /* text-align: center; */
+    text-align: center;
     position: fixed;
     top: 0;
-    left: 0;
+    /* left: 0; */
     width: 100%;
     padding: 20px 0;
     height: 3vh; 
@@ -47,6 +43,9 @@ body {
 }
 
 .card {
+    position: relative;
+    top: 15vh; /* at top of the page */
+    left: 10vh; /* at left of the page */
     background-color: #fff;
     border-radius: 5px;
     width: 20%; 
