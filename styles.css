@@ -48,7 +48,7 @@ body {
     left: 10vh; at left of the page */
     background-color: #fff;
     border-radius: 5px;
-    width: 20%; 
+    width: 15%; 
     padding: 5px; 
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
 } 
@@ -59,7 +59,7 @@ body {
 
 .card-title {
     border: none;   
-    width: 90%;
+    width: 95%;
     padding: 5px;
     font-size: 18px;
     font-family: jetbrains mono;
@@ -72,7 +72,7 @@ body {
 
 .card-description {
     border: none;
-    width: 80%;
+    width: 90%;
     padding: 10px;
     font-size: 14px;
     font-family: jetbrains mono;
