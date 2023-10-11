@@ -28,6 +28,25 @@ body {
     padding: 0;
 }
 
+.button {
+    position: relative;
+
+    background-color: white; 
+    color: rgb(122, 163, 238); 
+
+    border: none;
+
+    margin: 5px;    
+    padding: 10px 20px; 
+    cursor: pointer; 
+    border-radius: 5px; 
+}
+
+.button:hover {
+    background-color: rgb(136, 171, 237); 
+    color: white;
+}
+
 .card {
     background-color: white;
     position: relative;
