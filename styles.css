@@ -49,8 +49,8 @@ body {
 
 .card {
     background-color: white;
-    position: relative;
-    left: 5vh; /* !!! змінювати цей параметр для кожної картки окремо*/ 
+    position: absolute; /* relative */
+    /* left: 5vh; /* !!! змінювати цей параметр для кожної картки окремо*/ 
 
     border-radius: 5px;
     width: fit-content;
