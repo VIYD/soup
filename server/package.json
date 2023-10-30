@@ -1,0 +1,22 @@
+{
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mysql2": "^3.6.2",
+    "sequelize": "^6.33.0",
+    "sequelize-cli": "^6.6.1"
+  },
+  "name": "soup",
+  "description": "all needed files for hosting single-page site. made as an coursework.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

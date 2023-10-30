@@ -39,7 +39,7 @@ loadButton.addEventListener("click", () => {
 
 saveButton.addEventListener("click", () => {
     const title = cardTitle.value;
-    const description = cardDescription.value;
+    const description = cardDescription.valu6e;
     
     db.query('INSERT INTO card_1 (title, description) VALUES (?, ?)', [title, description], (err, results, fields) => {
         if (err) {
