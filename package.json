@@ -9,7 +9,7 @@
   "name": "soup",
   "description": "all needed files for hosting single-page site. made as an coursework.",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "./server/index.js",
   "devDependencies": {
     "nodemon": "^3.0.1"
   },
