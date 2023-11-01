@@ -11,7 +11,7 @@ router.post('/', async (req, res) => {
     const card = req.body;
 
     await cards.create(card);
-    res.send(card);
+    res.json(card);
 })
 
 module.exports = router;
