@@ -1,25 +1,20 @@
 import './App.css';
-import axios from "axios"; //like fetch-api
-import {useEffect, useState} from "react";
+//import axios from "axios"; //like fetch-api
+import {BrowserRouter, Route, Routes, Link} from "react-router-dom";
+import Home from './pages/Home';
+import CreateCard from './pages/CreateCard';
 
 function App() {
-
-  const [listOfCards, setListOfCards] = useState([]);
-
-  useEffect(() =>  {
-    axios.get("http://localhost:3001/cards").then((response) => {
-      setListOfCards(response.data);
-    });
-  }, []);
-
-
-  return (<div className="App"> 
-    {listOfCards.map((value, key) => {
-      return <div className='card'> 
-        <div className='title'> {value.title} </div>
-        <div className='description'> {value.description} </div>
-      </div>
-    })} 
+  return (
+    <div className="App">
+      <BrowserRouter>
+      <Link to='/createcard'>+</Link>
+      <Link to='/'>-</Link>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/createcard" element={<CreateCard />} />
+        </Routes>
+      </BrowserRouter>
     </div>    
     );
 }
