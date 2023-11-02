@@ -8,8 +8,8 @@ function Home() {
 
     useEffect(() =>  {
         axios.get("http://localhost:3001/cards").then((response) => {
-        setListOfCards(response.data);
-    });
+            setListOfCards(response.data);
+        });
     }, []);
 
     return ( 
