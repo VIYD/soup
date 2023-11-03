@@ -2,6 +2,7 @@ import React from "react";
 import {Formik, Form, Field, ErrorMessage} from 'formik';
 import * as Yup from 'yup';
 import axios from "axios";
+import { useNavigate } from 'react-router-dom';
 
 function CreateCard() {
     const initialValues = {
@@ -11,7 +12,8 @@ function CreateCard() {
 
     const onSubmit = (data) => {
         axios.post("http://localhost:3001/cards", data).then((response) => {
-            console.log("Succesful post request")
+            //navigate(`/cards/byID/${id}`) //зробити навігацію на сторінку картки, яку створено
+            navigate('/');
         });
     };
 
@@ -19,6 +21,8 @@ function CreateCard() {
         title: Yup.string().required(),             //required('error msg')
         description: Yup.string().required()        //Yup.string().max(...).min(...)
     });
+
+    let navigate = useNavigate();
 
 
     return <div className="createCardPage"> 

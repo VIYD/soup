@@ -3,6 +3,7 @@ import './App.css';
 import {BrowserRouter, Route, Routes, Link} from "react-router-dom";
 import Home from './pages/Home';
 import CreateCard from './pages/CreateCard';
+import Card from './pages/Card';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/createcard" element={<CreateCard />} />
+          <Route path="/card/:id" element={<Card />} />
         </Routes>
       </BrowserRouter>
     </div>    

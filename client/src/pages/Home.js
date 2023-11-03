@@ -1,10 +1,12 @@
 import React from 'react'
 import axios from 'axios';
 import {useEffect, useState} from "react";
+import { useNavigate } from 'react-router-dom';
 
 function Home() {
 
     const [listOfCards, setListOfCards] = useState([]);
+    let navigate = useNavigate();
 
     useEffect(() =>  {
         axios.get("http://localhost:3001/cards").then((response) => {
@@ -15,9 +17,9 @@ function Home() {
     return ( 
         <div>
         {listOfCards.map((value, key) => {
-            return <div className='card'> 
-                <div className='title'> {value.title} </div>
-                <div className='description'> {value.description} </div>
+            return <div className='card' onClick={() => {navigate(`/card/${value.id}`)}}> 
+                <div className='titleHome'> {value.title} </div>
+                <div className='descriptionHome'> {value.description} </div>
             </div>
     })} 
         </div>

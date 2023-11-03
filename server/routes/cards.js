@@ -7,11 +7,17 @@ router.get('/', async (req, res) => {
    res.json(listOfCards);
 });
 
+router.get('/byID/:id', async (req, res) => {
+    const id = req.params.id;
+    const card = await cards.findByPk(id);
+    res.json(card);
+});
+
 router.post('/', async (req, res) => {
     const card = req.body;
 
     await cards.create(card);
     res.json(card);
-})
+});
 
 module.exports = router;

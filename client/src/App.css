@@ -71,7 +71,7 @@ body {
   cursor: pointer;
 }
 
-.title {
+.titleHome {
   font-family: JetBrains Mono;
   font-weight: bold;
   font-size: 18px;
@@ -90,7 +90,7 @@ body {
   padding: 3px;   
 }
 
-.description {
+.descriptionHome {
   font-family: JetBrains Mono;
   font-size: 14px;
 
