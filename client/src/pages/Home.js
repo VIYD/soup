@@ -8,7 +8,7 @@ function Home() {
     const [listOfCards, setListOfCards] = useState([]);
     let navigate = useNavigate();
 
-    useEffect(() =>  {
+    useState(() =>  { //useEffect
         axios.get("http://localhost:3001/cards").then((response) => {
             setListOfCards(response.data);
         });
@@ -17,7 +17,7 @@ function Home() {
     return ( 
         <div>
         {listOfCards.map((value, key) => {
-            return <div className='card' onClick={() => {navigate(`/card/${value.id}`)}}> 
+            return <div className='cardHome' onClick={() => {navigate(`/card/${value.id}`)}}> 
                 <div className='titleHome'> {value.title} </div>
                 <div className='descriptionHome'> {value.description} </div>
             </div>

@@ -4,20 +4,23 @@ import axios from "axios";
 
 function Card() {
     let { id } = useParams();
-    const [cardObject, setCardObject] = useState({});
+    const [cardObject, setCardObject] = useState([]); //useState({})
+    const [listOfCards, setListOfCards] = useState([]);
 
-    useEffect (() => {
+    useState (() => { //useEffect
         axios.get(`http://localhost:3001/cards/byID/${id}`).then((response) => {
             setCardObject(response.data);
         });
     });
 
     return (
-        <div className="cardPage">
-            <div className="title">{cardObject.title}</div>
-            <div className="description">{cardObject.description}</div>
+        <div className="cardPage">        
+            <div className="cardChosen">
+                <div className="titleChosen">{cardObject.title}</div>
+                <div className="descriptionChosen">{cardObject.description}</div>
+            </div>
         </div>
     )
-}
+};
 
 export default Card;

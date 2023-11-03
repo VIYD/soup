@@ -3,15 +3,16 @@
 }
 
 body {
-  background-color: rgb(225, 225, 225);
+  background-color: steelblue;
 
   margin: 0;
   padding: 0; 
 }
 
 .site-header {
-  background-color: cornflowerblue;
-  color: white;
+  background-color: white;
+  color: steelblue;
+
   text-align: center;
   position: relative;
 
@@ -26,6 +27,7 @@ body {
 
 .site-header p {
   font-family: JetBrains Mono;
+  font-weight: bold;
   font-size: 32px;
 
   margin: 0;
@@ -51,7 +53,7 @@ body {
   color: white;
 }
 
-.card {
+.cardHome {
   background-color: white;
   position: relative;
   /* display: flex;
@@ -66,18 +68,18 @@ body {
   padding: 5px;
 }
 
-.card:hover {
-  box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.1);
+.cardHome:hover {
+  box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.15);
   cursor: pointer;
 }
 
 .titleHome {
   font-family: JetBrains Mono;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 24px;
 
   width: 30vh;
-  height: 4vh;
+  height: fit-content;
 
   resize: none;
   outline: none;
@@ -92,10 +94,60 @@ body {
 
 .descriptionHome {
   font-family: JetBrains Mono;
-  font-size: 14px;
+  font-size: 20px;
 
   width: 30vh;
   height: 20vh;
+
+  resize: none;
+  outline: none;
+  border: none; 
+
+  margin: 0;
+  padding: 5px; 
+}
+
+.cardChosen {
+  background-color: white;
+  position: absolute;
+  top: 5vh;
+  left: 50%;
+  transform: translate(-55%, 0); /* Бажано переписати */
+
+
+  border-radius: 5px;
+  width: fit-content;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+
+  margin: 3vh;
+  padding: 5px;
+}
+
+.titleChosen {
+  font-family: JetBrains Mono;
+  font-weight: bold;
+  font-size: 30px;
+
+  width: 50vh;
+  height: fit-content;
+
+  resize: none;
+  outline: none;
+  border: none; 
+  border-bottom: 1px solid #ddd;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+
+  margin: 0;
+  padding: 8px;  
+}
+
+.descriptionChosen {
+  font-family: JetBrains Mono;
+  font-size: 24px;
+
+  width: 50vh;
+  height: 40vh;
 
   resize: none;
   outline: none;
