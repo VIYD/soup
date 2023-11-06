@@ -12,8 +12,8 @@ function App() {
       <BrowserRouter>
       <div className='site-header'>
         <p>SOUP</p>
-        <Link to='/createcard'>Create Card</Link>
         <Link to='/'>Home</Link>
+        <Link to='/createcard'>Create Card</Link>
       </div>
         <Routes>
           <Route path="/" element={<Home />} />

@@ -12,12 +12,12 @@ module.exports = (sequelize, DataTypes) => {
         },
     });
 
-    Users.hasMany(Cards, {
-        foreignKey: 'userID',
-        onDelete: 'cascade'
-    });
+    // Users.hasMany(Cards, {
+    //     foreignKey: 'userID',
+    //     onDelete: 'cascade'
+    // });
 
-    Cards.belongsTo(Users)
+    // Cards.belongsTo(Users)
 
     return Users
 }
