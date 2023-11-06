@@ -1,4 +1,3 @@
-const { Model } = require('sequelize')
 const Cards = require("./cards");
 
 module.exports = (sequelize, DataTypes) => {
