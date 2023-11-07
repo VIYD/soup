@@ -10,6 +10,11 @@ function CreateCard() {
         description: ''
     };
 
+    const validationSchema = Yup.object().shape({
+        title: Yup.string().required(),             //required('error msg')
+        description: Yup.string().required()        //Yup.string().max(...).min(...)
+    });
+
     const onSubmit = (data) => {
         axios.post("http://localhost:3001/cards", data).then((response) => {
             //navigate(`/cards/byID/${id}`) //зробити навігацію на сторінку картки, яку створено
@@ -17,24 +22,27 @@ function CreateCard() {
         });
     };
 
-    const validationSchema = Yup.object().shape({
-        title: Yup.string().required(),             //required('error msg')
-        description: Yup.string().required()        //Yup.string().max(...).min(...)
-    });
-
     let navigate = useNavigate();
 
 
     return <div className="createCardPage"> 
         <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
-            <Form className="...">
+            <Form className="formCreateCard">
                 <label>Title</label>
                 <ErrorMessage name='title' component='span' />
-                <Field id='inputCreateCard' name='title' placeholder='Ex: ToDoList' autocomplete='off' />
+                <Field 
+                    id='inputCreateCard' 
+                    name='title' 
+                    placeholder='Your title' 
+                    autocomplete='off' />
+
                 <label>Description</label>
                 <ErrorMessage name='description' component='span' />
-                <Field id='inputCreateCard' name='description' placeholder='Ex' autocomplete='off' />
-
+                <Field 
+                    id='inputCreateCard' 
+                    name='description' 
+                    placeholder='Your description' 
+                    autocomplete='off' />
                 <button type='submit'>Create Card</button>
             </Form>
         </Formik>

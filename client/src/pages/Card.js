@@ -5,7 +5,7 @@ import axios from "axios";
 function Card() {
     let { id } = useParams();
     const [cardObject, setCardObject] = useState([]); //useState({})
-    const [listOfCards, setListOfCards] = useState([]);
+    //const [listOfCards, setListOfCards] = useState([]);
 
     useState (() => { //useEffect
         axios.get(`http://localhost:3001/cards/byID/${id}`).then((response) => {

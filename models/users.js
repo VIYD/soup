@@ -1,23 +1,19 @@
-const Cards = require("./cards");
-
 module.exports = (sequelize, DataTypes) => {
-    const Users = sequelize.define("users", {
-        username : {
+    const users = sequelize.define("users", {
+        username: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
         },
-        password : {
+        password: {
             type: DataTypes.STRING,
-            allowNull: false
-        },
+            allowNull: false,
+        }
     });
 
-    // Users.hasMany(Cards, {
-    //     foreignKey: 'userID',
-    //     onDelete: 'cascade'
-    // });
+    users.hasMany(sequelize.models.cards, { 
+        foreignKey: 'userID',
+        onDelete: 'cascade',
+    });
 
-    // Cards.belongsTo(Users)
-
-    return Users
-}
+    return users;
+};
