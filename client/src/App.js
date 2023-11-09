@@ -2,11 +2,11 @@ import './App.css';
 //import axios from "axios"; //like fetch-api
 import {BrowserRouter, Route, Routes, Link} from "react-router-dom";
 
-import Home from './pages/Home';
-import CreateCard from './pages/CreateCard';
-import Card from './pages/Card';
-import Registration from './pages/Registration';
-import Login from './pages/Login';
+import Home from './pages/HomePage';
+import CreateCard from './pages/CreateCardPage';
+import Card from './pages/ChosenCardPage';
+import Registration from './pages/RegistrationPage';
+import Login from './pages/LoginPage';
 
 import "@fontsource/jetbrains-mono";
 

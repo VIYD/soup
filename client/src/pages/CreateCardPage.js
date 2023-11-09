@@ -16,9 +16,21 @@ function CreateCard() {
     });
 
     const onSubmit = (data) => {
-        axios.post("http://localhost:3001/cards", data).then((response) => {
-            //navigate(`/cards/byID/${id}`) //зробити навігацію на сторінку картки, яку створено
-            navigate('/');
+        axios.post(
+            "http://localhost:3001/cards",
+            data,
+            {
+                headers: {
+                    'accessToken': sessionStorage.getItem('accessToken'),
+                },
+            }
+        ).then((response) => {
+            if (response.data.error) {
+                console.log(response.data.error);
+                alert('User is not logged in to create a card.')
+            } else {
+                navigate(`/card/${response.data.id}`);
+            }
         });
     };
 
@@ -34,7 +46,7 @@ function CreateCard() {
                     id='inputCreateCard' 
                     name='title' 
                     placeholder='Your title' 
-                    autocomplete='off' />
+                    autoComplete='off' />
 
                 <label>Description</label>
                 <ErrorMessage name='description' component='span' />
@@ -42,7 +54,7 @@ function CreateCard() {
                     id='inputCreateCard' 
                     name='description' 
                     placeholder='Your description' 
-                    autocomplete='off' />
+                    autoComplete='off' />
                 <button type='submit'>Create Card</button>
             </Form>
         </Formik>

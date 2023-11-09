@@ -24,9 +24,9 @@ function Registration() {
     let navigate = useNavigate();
 
     return (
-    <div className="registrationPage"> 
+    <div className='registrationPage'> 
         <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
-            <Form className="formRegister">
+            <Form className='formRegister'>
                 <label>Username</label>
                 <ErrorMessage name='username' component='span' />
                 <Field 

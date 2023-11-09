@@ -18,7 +18,12 @@ function Login() {
     const onSubmit = (data) => {
         axios.post("http://localhost:3001/auth/login", data).then((response) => {
             //navigate('/');
-            console.log(response.data);
+            if (response.data.error) {
+                alert(response.data.error);
+            } else {
+                sessionStorage.setItem('accessToken', response.data);
+                navigate('/');
+            }
         });
     };
 
@@ -34,7 +39,7 @@ function Login() {
                     id='inputUsername' 
                     name='username' 
                     placeholder='Your username' 
-                    autocomplete='off' />
+                    autoComplete='off' />
 
                 <label>Password</label>
                 <ErrorMessage name='password' component='span' />
@@ -43,7 +48,7 @@ function Login() {
                     type='password'
                     name='password' 
                     placeholder='Your password' 
-                    autocomplete='off' />
+                    autoComplete='off' />
                 <button type='submit'>Login</button>
             </Form>
         </Formik>
