@@ -165,6 +165,24 @@ body {
   padding: 5px; 
 }
 
+.usernameChosen {
+  font-family: JetBrains Mono;
+  font-size: 15px;
+
+  width: 50vh;
+  height: fit-content;
+
+  resize: none;
+  outline: none;
+  border: none; 
+  border-top: 1px solid #ddd;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+
+  margin: 0;
+  padding: 8px;  
+}
+
 span {
   color: red;
 }

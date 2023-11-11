@@ -7,6 +7,7 @@ const validateToken = (req, res, next) => {
         return res.json({error: 'No access token.'});
     } try {
         const validToken = verify(accessToken, 'importantsecret');
+        req.user = validToken;
 
         if (validToken) {
             return next();

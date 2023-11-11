@@ -17,7 +17,8 @@ function Home() {
     return ( 
         <div>
         {listOfCards.map((value, key) => {
-            return <div className='cardHome' onClick={() => {navigate(`/card/${value.id}`)}}> 
+            //no cards - show alert?
+            return <div className='cardHome' title={`Created by ${value.username}`} onClick={() => {navigate(`/card/${value.id}`)}}> 
                 <div className='titleHome'> {value.title} </div>
                 <div className='descriptionHome'> {value.description} </div>
             </div>

@@ -18,6 +18,7 @@ function Card() {
             <div className="cardChosen">
                 <div className="titleChosen">{cardObject.title}</div>
                 <div className="descriptionChosen">{cardObject.description}</div>
+                <div className="usernameChosen">Created by {cardObject.username}</div>
             </div>
         </div>
     )

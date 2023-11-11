@@ -16,6 +16,8 @@ router.get('/byID/:id', async (req, res) => {
 
 router.post('/', validateToken, async (req, res) => {
     const card = req.body;
+    const username = req.user.username;
+    card.username = username;
     const createdCard = await cards.create(card);
     res.json({ id: createdCard.id });
 });

@@ -17,6 +17,6 @@ app.use('/auth', usersRouter);
 
 db.sequelize.sync().then(() => {
   app.listen(port, () => {
-    console.log(`API is listening on port ${port}`)
+    console.log(`SERVER is listening on port ${port}`)
   })
 });

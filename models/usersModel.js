@@ -10,10 +10,10 @@ module.exports = (sequelize, DataTypes) => {
         }
     });
 
-    users.hasMany(sequelize.models.cards, { 
-        foreignKey: 'userID',
-        onDelete: 'cascade',
-    });
+    // users.hasMany(sequelize.models.cards, { 
+    //     foreignKey: 'userID',
+    //     onDelete: 'cascade',
+    // });
 
     return users;
 };
