@@ -27,7 +27,7 @@ function CreateCard() {
         ).then((response) => {
             if (response.data.error) {
                 console.log(response.data.error);
-                alert('User is not logged in to create a card.')
+                alert('Log in to create a card.')
             } else {
                 navigate(`/card/${response.data.id}`);
             }

@@ -2,18 +2,22 @@ import './App.css';
 import axios from "axios";
 import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
 import { useState, useEffect } from 'react';
+import { AuthContext } from './helpers/AuthContext';
 
 import Home from './pages/HomePage';
 import CreateCard from './pages/CreateCardPage';
 import Card from './pages/ChosenCardPage';
 import Registration from './pages/RegistrationPage';
 import Login from './pages/LoginPage';
-import { AuthContext } from './helpers/AuthContext';
 
 import "@fontsource/jetbrains-mono";
 
 function App() {
-  let [authState, setAuthState] = useState(false);
+  let [authState, setAuthState] = useState({
+    username: '',
+    id: 0,
+    isLogged: false,
+  });
 
   useEffect(() => {
     axios.get('http://localhost:3001/auth/checkAuth', {
@@ -23,12 +27,25 @@ function App() {
     })
     .then((response) => {
         if (response.data.error) {
-          setAuthState(false)
+          setAuthState({...authState, isLogged: false})
         } else {
-          setAuthState(true)
+          setAuthState({
+          username: response.data.username,
+          id: response.data.id,
+          isLogged: true,
+          })
         }
       });
   }, []);
+
+  function logout() {
+    localStorage.removeItem('accessToken');
+    setAuthState({         
+      username: '',
+      id: 0,
+      isLogged: false,
+    });
+  }
 
   return (
     <div className="App">
@@ -38,12 +55,18 @@ function App() {
             <p>SOUP</p>
             <Link to='/'>Home</Link>
             <Link to='/createCard'>Create Card</Link>
-            {!authState && (
+            {!authState.isLogged ? (
               <>
               <Link to='/login'>Login</Link>
               <Link to='/registration'>Registration</Link>
               </>
+            ) : (
+              <>
+              <button className='button' onClick={logout}>Logout</button>
+              </>
             )}
+
+            <p>{authState.username}</p>
           </div>
           <Routes>
             <Route path="/" element={<Home />} />
