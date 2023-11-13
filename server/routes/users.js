@@ -40,7 +40,7 @@ router.post('/login', async (req, res) => {
 
 });
 
-router.get('/auth', (req, res) => {
+router.get('/checkAuth', validateToken, (req, res) => {
     res.json(req.user);
 });
 

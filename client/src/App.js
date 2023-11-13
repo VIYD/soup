@@ -16,7 +16,7 @@ function App() {
   let [authState, setAuthState] = useState(false);
 
   useEffect(() => {
-    axios.get('http://localhost:3001/auth/auth', {
+    axios.get('http://localhost:3001/auth/checkAuth', {
       headers: {
         accessToken: localStorage.getItem('accessToken'),
       },

@@ -25,7 +25,7 @@ function Login() {
                 alert(response.data.error);
             } else {
                 localStorage.setItem('accessToken', response.data);
-                setAuthState = true;
+                setAuthState(true);
                 navigate('/');
             }
         });
