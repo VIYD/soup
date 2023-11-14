@@ -9,7 +9,27 @@ body {
   padding: 0; 
 }
 
+/* GLOBAL */
 
+p {
+  font-family: JetBrains Mono;
+  font-weight: bold;
+  font-size: 32px;
+
+  color: white;
+}
+
+a {
+  font-family: JetBrains Mono;
+  font-style: italic;
+  font-size: 20px;
+
+  text-decoration: none;
+
+  color: white;
+}
+
+/* SITE HEADER */
 
 .site-header {
   background-color: white;
@@ -28,24 +48,34 @@ body {
   font-weight: bold;
   font-size: 32px;
 
+  color: steelblue;
+
 
   margin: 0;
   padding: 0;
 
-  margin-left: 3vh;
+  /* margin-left: 3vh; */
 }
 
 .site-header a {
   font-family: JetBrains Mono;
+  font-style: normal;
+
+  text-decoration: none;
+
+  color: steelblue;
 
   margin-left: 3vh;
-  text-decoration: none;
-  color: steelblue;
 }
 
-.button {
+/* BUTTON */
+
+button {
+  font-family: JetBrains Mono;
+  font-size: 18px;
+
   background-color: white; 
-  color: rgb(122, 163, 238); 
+  color: steelblue; 
 
   border: none;
 
@@ -55,10 +85,54 @@ body {
   border-radius: 5px; 
 }
 
-.button:hover {
-  background-color: rgb(136, 171, 237); 
+button:hover {
+  background-color: rgb(190, 190, 190); 
   color: white;
 }
+
+/* LOGIN/REGISTRATION */
+
+.formLogin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  margin: 3vh;
+}
+
+.formRegistration {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 3vh;
+}
+
+label {
+  font-family: JetBrains Mono;
+  font-size: 18px;
+
+  color: white;
+
+  border: none; 
+
+  margin-bottom: 3vh; 
+}
+
+input {
+  font-family: JetBrains Mono;
+  font-size: 18px;
+
+  color: black;
+  background-color: white;
+
+  border: none; 
+
+  margin-bottom: 3vh; 
+}
+
+/* HOME PAGE */
 
 .cardHome {
   background-color: white;
@@ -91,17 +165,20 @@ body {
   resize: none;
   outline: none;
   border: none; 
-  border-bottom: 1px solid #ddd;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
+  border-bottom: 1px solid #000000;
 
   margin: 0;
   padding: 3px;   
+
+  word-wrap: break-word;
+  max-width: 100%; 
 }
 
 .descriptionHome {
   font-family: JetBrains Mono;
   font-size: 20px;
+
+  text-align: center;
 
   width: 30vh;
   height: 20vh;
@@ -112,7 +189,76 @@ body {
 
   margin: 0;
   padding: 5px; 
+
+  cursor: pointer;
 }
+
+/* CREATE CARD PAGE */
+
+.formCreateCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 3vh;
+}
+
+.cardCreation {
+  background-color: white;
+  position: absolute;
+  top: 50%; 
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  border-radius: 5px;
+  width: fit-content;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+
+  margin: 0;
+  padding: 10px;
+}
+
+.titleCreation {
+  font-family: JetBrains Mono;
+  font-weight: bold;
+  font-size: 30px;
+
+  width: 50vh;
+  height: fit-content;
+
+  text-align: center;
+
+  resize: none;
+  outline: none;
+  border: none; 
+  border-bottom: 1px solid #000000;
+  border-radius: 5px;
+
+  margin: 0;
+  margin-bottom: 2vh;
+  padding: 5px;  
+}
+
+.descriptionCreation {
+  font-family: JetBrains Mono;
+  font-size: 24px;
+
+  width: 50vh;
+  height: 40vh;
+
+  text-align: center;
+
+  resize: none;
+  outline: none;
+  border: none; 
+  border-radius: 5px;
+
+  margin: 0;
+  margin-bottom: 2vh;
+  padding: 5px; 
+}
+
+/* CHOSEN CARD PAGE */
 
 .cardChosen {
   background-color: white;
@@ -140,9 +286,10 @@ body {
   resize: none;
   outline: none;
   border: none; 
-  border-bottom: 1px solid #ddd;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
+  border-bottom: 1px solid #000000;
+
+  word-wrap: break-word;
+  max-width: 100%;
 
   margin: 0;
   padding: 8px;  
@@ -151,6 +298,8 @@ body {
 .descriptionChosen {
   font-family: JetBrains Mono;
   font-size: 24px;
+
+  text-align: center;
 
   width: 50vh;
   height: 40vh;
@@ -173,14 +322,17 @@ body {
   resize: none;
   outline: none;
   border: none; 
-  border-top: 1px solid #ddd;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
+  border-top: 1px solid #000000;
 
   margin: 0;
   padding: 8px;  
 }
 
+/* OTHER */
+
 span {
+  font-family: JetBrains Mono;
+  font-size: 18px;
+
   color: red;
 }
