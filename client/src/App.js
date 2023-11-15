@@ -70,7 +70,7 @@ function App() {
               </>
             )}
 
-            <p>{authState.username}</p>
+            <p className="username">{authState.username}</p>
           </div>
           <Routes>
             <Route path="/" element={<Home />} />
