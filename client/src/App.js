@@ -64,7 +64,7 @@ function App() {
               </>
             ) : (
               <>
-                <button className="button" onClick={logout}>
+                <button className="header-button" onClick={logout}>
                   Logout
                 </button>
               </>

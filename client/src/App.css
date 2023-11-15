@@ -37,6 +37,18 @@ a {
  transform: translate(-50%);
 }
 
+.header-button {
+  background-color: steelblue; 
+  color: white; 
+
+  position: absolute;
+  right: 3vh;
+}
+
+.header-button:hover {
+  background-color: rgb(49, 91, 125); 
+}
+
 .site-header {
   background-color: white;
   color: steelblue;
@@ -80,11 +92,8 @@ button {
   font-family: JetBrains Mono;
   font-size: 18px;
 
-  position: absolute;
-  right: 3vh;
-
-  background-color: steelblue; 
-  color: white; 
+  background-color: white; 
+  color: steelblue; 
 
   border: none;
 
@@ -96,7 +105,6 @@ button {
 
 button:hover {
   background-color: rgb(190, 190, 190); 
-  color: white;
 }
 
 /* LOGIN/REGISTRATION */
