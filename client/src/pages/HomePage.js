@@ -7,8 +7,7 @@ function Home() {
   const [listOfCards, setListOfCards] = useState([]);
   let navigate = useNavigate();
 
-  useState(() => {
-    //useEffect
+  useEffect(() => {
     axios.get("http://localhost:3001/cards").then((response) => {
       setListOfCards(response.data);
     });
