@@ -36,11 +36,23 @@ function Card() {
       });
   }, []);
 
-  useState(() => {
-    axios.get(`http://localhost:3001/cards/byID/${id}`).then((response) => {
-      setCardObject(response.data);
-    });
-  });
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`http://localhost:3001/cards/byID/${id}`);
+        setCardObject(response.data);
+      } catch (error) {
+        if (error.response && error.response.status === 404) {
+          navigate('/CardNotFound');
+        } else {
+          navigate('/PageNotFound')
+          console.error('Error fetching card:', error);
+        }
+      }
+    };
+  
+    fetchData();
+  }, [id, navigate]);
 
   const deleteCard = (id) => {
     axios

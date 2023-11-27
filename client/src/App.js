@@ -10,6 +10,7 @@ import Card from "./pages/ChosenCardPage";
 import Registration from "./pages/RegistrationPage";
 import Login from "./pages/LoginPage";
 import PageNotFound from "./pages/PageNotFound";
+import CardNotFound from "./pages/CardNotFound";
 
 import "@fontsource/jetbrains-mono";
 
@@ -79,6 +80,7 @@ function App() {
             <Route path="/registration" element={<Registration />} />
             <Route path="/login" element={<Login />} />
             <Route path="*" element={<PageNotFound />} />
+            <Route path="CardNotFound" element={<CardNotFound />} />
           </Routes>
         </BrowserRouter>
       </AuthContext.Provider>
