@@ -24,7 +24,7 @@ a {
   font-style: italic;
   font-size: 20px;
 
-  text-decoration: none;
+  text-decoration: underline;
 
   color: white;
 }
@@ -312,6 +312,10 @@ input {
   padding: 8px;  
 }
 
+.titleChosen:hover {
+  cursor: pointer;
+}
+
 .descriptionChosen {
   font-family: JetBrains Mono;
   font-size: 24px;
@@ -327,6 +331,10 @@ input {
 
   margin: 0;
   padding: 5px; 
+}
+
+.descriptionChosen:hover {
+  cursor: pointer;
 }
 
 .usernameChosen {

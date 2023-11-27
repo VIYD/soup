@@ -11,13 +11,13 @@ function Registration() {
   };
 
   const validationSchema = Yup.object().shape({
-    username: Yup.string().min(3).max(15).required(), //required('error msg')
-    password: Yup.string().min(4).max(20).required(), //Yup.string().max(...).min(...)
+    username: Yup.string().min(3).max(20).required("Please, enter a username"), //required('error msg')
+    password: Yup.string().min(4).max(20).required("Please, enter a password"), //Yup.string().max(...).min(...)
   });
 
   const onSubmit = (data) => {
     axios.post("http://localhost:3001/auth", data).then((response) => {
-      navigate("/");
+      navigate("/login");
     });
   };
 

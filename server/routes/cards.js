@@ -28,12 +28,30 @@ router.get("/byID/:id", async (req, res) => {
 router.post("/", validateToken, async (req, res) => {
   const card = req.body;
   const username = req.user.username;
+  const userID = req.user.ID;
+
   card.username = username;
+  card.userID = userID;
+  
   const createdCard = await cards.create(card);
-  res.json({ id: createdCard.id });
+  res.json(createdCard);
   //ToDo:
   //Send whole json object to to user-side
   //Because considered as a good practice
+});
+
+//PUT for card's title
+router.put("/title", validateToken, async (req, res) => {
+  const { newTitle, id } = req.body;
+  await cards.update({title:newTitle}, {where: {id: id}})
+  res.json(newTitle);
+});
+
+//PUT for card's description
+router.put("/description", validateToken, async (req, res) => {
+  const { newDescription, id } = req.body;
+  await cards.update({description:newDescription}, {where: {id: id}})
+  res.json(newDescription);
 });
 
 router.delete("/:id", validateToken, async (req, res) => {

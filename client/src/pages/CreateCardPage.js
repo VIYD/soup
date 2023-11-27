@@ -11,8 +11,8 @@ function CreateCard() {
   };
 
   const validationSchema = Yup.object().shape({
-    title: Yup.string().required(), //required('error msg')
-    description: Yup.string().required(), //Yup.string().max(...).min(...)
+    title: Yup.string().required("Please, enter a title"), //required('error msg')
+    description: Yup.string().required("Please, enter a description"), //Yup.string().max(...).min(...)
   });
 
   const onSubmit = (data) => {
