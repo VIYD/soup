@@ -9,6 +9,7 @@ import CreateCard from "./pages/CreateCardPage";
 import Card from "./pages/ChosenCardPage";
 import Registration from "./pages/RegistrationPage";
 import Login from "./pages/LoginPage";
+import Validation from "./pages/Validation";
 import PageNotFound from "./pages/PageNotFound";
 import CardNotFound from "./pages/CardNotFound";
 
@@ -78,6 +79,7 @@ function App() {
             <Route path="/createcard" element={<CreateCard />} />
             <Route path="/card/:id" element={<Card />} />
             <Route path="/registration" element={<Registration />} />
+            <Route path="/validation" element={<Validation />} />
             <Route path="/login" element={<Login />} />
             <Route path="*" element={<PageNotFound />} />
             <Route path="CardNotFound" element={<CardNotFound />} />

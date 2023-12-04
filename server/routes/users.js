@@ -1,15 +1,16 @@
 const express = require("express");
 const router = express.Router();
 const { users } = require("../../models");
+const { tempUsers } = require("../../models");
 const bcrypt = require("bcrypt");
 
 const { validateToken } = require("../middleware/TokenMiddleware");
-const { activationMiddleware, isCodeValid } = require('../middleware/MailMiddleware');
+const { activationMiddleware, isCodeValid, generateActivationCode, sendActivationEmail } = require('../middleware/MailMiddleware');
 
 const { sign } = require("jsonwebtoken");
 
 router.post("/register", activationMiddleware, async (req, res) => {
-  const { username, password } = req.body;
+  const { username, password, email } = req.body;
 
   try {
     const existingUser = await users.findOne({ where: { username: username } });
@@ -22,10 +23,13 @@ router.post("/register", activationMiddleware, async (req, res) => {
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    await users.create({
+    await tempUsers.create({
       username: username,
       password: hashedPassword,
+      email: email
     });
+
+    sendActivationEmail(email, generateActivationCode());
 
     return res
       .status(200)
@@ -37,6 +41,47 @@ router.post("/register", activationMiddleware, async (req, res) => {
       .json({ error: "Internal Server Error" });
   }
 });
+
+router.post("/validateCode", activationMiddleware, async (req, res) => {
+  const { username, code } = req.body;
+
+  const intCode = parseInt(code);
+
+  console.log(isCodeValid(intCode));
+  console.log(intCode);
+
+  try {
+    if (isCodeValid(intCode)) {
+      const user = await tempUsers.findOne({ where: { username: username } });
+
+      await users.create({
+        username: user.username,
+        password: user.password,
+        email: user.email
+      });
+
+      await tempUsers.destroy({
+        where: {
+          username: user.username,
+        },
+      });
+
+      res
+        .status(200)
+        .json({success: true})
+    } else {
+      res
+        .status(400)
+        .json({ error: "Code is invalid" });      
+    }
+  } catch (error) {
+    console.error("Error during validation:", error);
+    return res
+      .status(500)
+      .json({ error: "Internal Server Error" });
+  }
+})
+
 
 
 router.post("/login", async (req, res) => {

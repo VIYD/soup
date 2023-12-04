@@ -2,25 +2,26 @@ import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 
 function Registration() {
   const initialValues = {
     username: "",
     password: "",
+    email: "",
   };
 
   const validationSchema = Yup.object().shape({
     username: Yup.string().min(3).max(20).required("Please, enter a username"), //required('error msg')
     password: Yup.string().min(4).max(20).required("Please, enter a password"), //Yup.string().max(...).min(...)
-    email: Yup.string().email().required("Please, enter your email")
+    email: Yup.string().email().required("Please, enter your email"),
   });
 
   const onSubmit = async (data) => {
     try {
       const response = await axios.post("http://localhost:3001/auth/register", data);
-      navigate("/login");
+      navigate("/validation");
     } catch (error) {
       if (error.response && error.response.status === 400) {
         alert("Error: Username already taken!");
@@ -29,7 +30,8 @@ function Registration() {
       }
     }
   };
-   
+  
+  
 
   let navigate = useNavigate();
 
@@ -68,6 +70,7 @@ function Registration() {
           autocomplete="off"
         />
         <button type="submit">Register</button>
+        <Link to="/validation">Need to validate account? Click here.</Link>
       </Form>
     </Formik>
   );

@@ -1,10 +1,15 @@
 const nodemailer = require('nodemailer');
 
 function generateActivationCode() {
-  const min = 100000; 
-  const max = 999999; 
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+    const min = 100000;
+    const max = 999999;
+  
+    let code = Math.floor(Math.random() * (max - min + 1)) + min;
+  
+    code = Math.ceil(code / 7) * 7;
+  
+    return code;
+  }
 
 function isCodeValid(code) {
   return code % 7 === 0;
@@ -12,10 +17,10 @@ function isCodeValid(code) {
 
 function sendActivationEmail(email, activationCode) {
   const transporter = nodemailer.createTransport({
-    service: 'gmail',
+    service: 'Gmail',
     auth: {
-      user: 'SOUPhelper@gmail.com',
-      pass: 'SoupSoup123',
+      user: 'souphelper@gmail.com',
+      pass: 'ueqz ieuy toww ypdg', //SoupSoup123
     },
   });
 
@@ -45,4 +50,4 @@ function activationMiddleware(req, res, next) {
   next();
 }
 
-module.exports = { activationMiddleware, isCodeValid };
+module.exports = { activationMiddleware, isCodeValid, generateActivationCode, sendActivationEmail };
