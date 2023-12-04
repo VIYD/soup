@@ -18,21 +18,25 @@ function Login() {
     password: Yup.string().required("Please, enter a password"),
   });
 
-  const onSubmit = (data) => {
-    axios.post("http://localhost:3001/auth/login", data).then((response) => {
-      if (response.data.error) {
-        alert(response.data.error);
+  const onSubmit = async (data) => {
+    try {
+      const response = await axios.post("http://localhost:3001/auth/login", data);
+      const { token, username, id } = response.data;
+  
+      localStorage.setItem("accessToken", token);
+      setAuthState({ username, id, isLogged: true });
+      navigate("/");
+    } catch (error) {
+      if (error.response && error.response.status === 400) {
+        alert("Error: Wrong username or password!");
+      } else if (error.response && error.response.status === 404) {
+        alert("Error: User does not exist.");
       } else {
-        localStorage.setItem("accessToken", response.data.token);
-        setAuthState({
-          username: response.data.username,
-          id: response.data.id,
-          isLogged: true,
-        });
-        navigate("/");
+        console.error("An error occurred during login:", error);
       }
-    });
+    }
   };
+  
 
   let navigate = useNavigate();
 
