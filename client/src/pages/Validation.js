@@ -57,6 +57,7 @@ function Validation() {
           placeholder="Your code..."
           autocomplete="off"
         />
+        <button type="submit">Complete registration</button>
       </Form>
     </Formik>
   );
