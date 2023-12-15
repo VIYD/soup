@@ -3,67 +3,109 @@ const router = express.Router();
 const { cards } = require("../../models");
 const { validateToken } = require("../middleware/TokenMiddleware");
 
-//Global ToDo:
-//Send proper status-codes, PUT for editing
-//Exceptions with proper codes
-//Do this to TokenMiddleware also
-
 router.get("/", async (req, res) => {
-  const listOfCards = await cards.findAll();
-  res.json(listOfCards);
-  //Status code, E
+  try {
+    const listOfCards = await cards.findAll();
+    res
+      .status(200)
+      .json(listOfCards);
+  } catch (error) {
+    console.error(error);
+    res
+      .status(500)
+      .json({ error: "Internal Server Error" });
+  }
 });
 
 router.get("/byID/:id", async (req, res) => {
-  const id = req.params.id;
-  const card = await cards.findByPk(id);
+  try {
+    const id = req.params.id;
+    const card = await cards.findByPk(id);
 
-  if (card === null) {
-    res.status(404).json({ error: 'Card by this ID was not found'})
-  } else {
-    res.json(card);
+    if (card === null) {
+      res
+        .status(404)
+        .json({ error: "Card by this ID was not found" });
+    } else {
+      res
+        .status(200)
+        .json(card);
+    }
+  } catch (error) {
+    console.error(error);
+    res
+      .status(500)
+      .json({ error: "Internal Server Error" });
   }
 });
 
 router.post("/", validateToken, async (req, res) => {
-  const card = req.body;
-  const username = req.user.username;
-  const userID = req.user.ID;
+  try {
+    const card = req.body;
+    const username = req.user.username;
+    const userID = req.user.ID;
 
-  card.username = username;
-  card.userID = userID;
-  
-  const createdCard = await cards.create(card);
-  res.json(createdCard);
-  //ToDo:
-  //Send whole json object to to user-side
-  //Because considered as a good practice
+    card.username = username;
+    card.userID = userID;
+
+    const createdCard = await cards.create(card);
+    res
+      .status(201)
+      .json(createdCard);
+  } catch (error) {
+    console.error(error);
+    res
+      .status(500)
+      .json({ error: "Internal Server Error" });
+  }
 });
 
-//PUT for card's title
 router.put("/title", validateToken, async (req, res) => {
-  const { newTitle, id } = req.body;
-  await cards.update({title:newTitle}, {where: {id: id}})
-  res.json(newTitle);
+  try {
+    const { newTitle, id } = req.body;
+    await cards.update({ title: newTitle }, { where: { id: id } });
+    res
+      .status(200)
+      .json(newTitle);
+  } catch (error) {
+    console.error(error);
+    res
+      .status(500)
+      .json({ error: "Internal Server Error" });
+  }
 });
 
-//PUT for card's description
 router.put("/description", validateToken, async (req, res) => {
-  const { newDescription, id } = req.body;
-  await cards.update({description:newDescription}, {where: {id: id}})
-  res.json(newDescription);
+  try {
+    const { newDescription, id } = req.body;
+    await cards.update({ description: newDescription }, { where: { id: id } });
+    res
+      .status(200)
+      .json(newDescription);
+  } catch (error) {
+    console.error(error);
+    res
+      .status(500)
+      .json({ error: "Internal Server Error" });
+  }
 });
 
 router.delete("/:id", validateToken, async (req, res) => {
-  const cardId = req.params.id;
-  await cards.destroy({
-    where: {
-      id: cardId,
-    },
-  });
-  res.send(200);
-  //Consider changins:
-  //res.status
+  try {
+    const cardId = req.params.id;
+    await cards.destroy({
+      where: {
+        id: cardId,
+      },
+    });
+    res
+      .sendStatus(200);
+  } catch (error) {
+    console.error(error);
+    res
+      .status(500)
+      .json({ error: "Internal Server Error" });
+  }
 });
 
 module.exports = router;
